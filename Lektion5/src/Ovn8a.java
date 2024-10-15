@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Ovn8a {
     
-    private ArrayList<Double> tempretures = new ArrayList<Double>();
+    private ArrayList<Double> temperatures = new ArrayList<Double>();
 
     public Ovn8a() {
         run();
@@ -28,7 +28,7 @@ public class Ovn8a {
             try{
             while ((line = br.readLine()) != null) {
                 line = line.replace(",", ".");
-                tempretures.add(Double.parseDouble(line));
+                temperatures.add(Double.parseDouble(line));
             }
             } catch (IOException e) {
                 System.out.println("Error reading file");
@@ -43,15 +43,15 @@ public class Ovn8a {
 
     public double getAverage(){
         double sum = 0;
-        for (double temp : tempretures) {
+        for (double temp : temperatures) {
             sum += temp;
         }
-        return sum / tempretures.size();
+        return sum / temperatures.size();
     }
 
     public double getMin(){
-        double min = tempretures.get(0);
-        for (double temp : tempretures) {
+        double min = temperatures.get(0);
+        for (double temp : temperatures) {
             if (temp < min) {
                 min = temp;
             }
@@ -60,8 +60,8 @@ public class Ovn8a {
     }
 
     public double getMax(){
-        double max = tempretures.get(0);
-        for (double temp : tempretures) {
+        double max = temperatures.get(0);
+        for (double temp : temperatures) {
             if (temp > max) {
                 max = temp;
             }
