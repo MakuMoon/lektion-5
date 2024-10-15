@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Ovn8a {
-    
+
     private ArrayList<Double> temperatures = new ArrayList<Double>();
 
     public Ovn8a() {
@@ -16,8 +16,7 @@ public class Ovn8a {
         Ovn8a ovn8a = new Ovn8a();
     }
 
-
-    public void run(){
+    public void run() {
         BufferedReader br;
 
         try {
@@ -25,11 +24,11 @@ public class Ovn8a {
             br = new BufferedReader(fr);
 
             String line;
-            try{
-            while ((line = br.readLine()) != null) {
-                line = line.replace(",", ".");
-                temperatures.add(Double.parseDouble(line));
-            }
+            try {
+                while ((line = br.readLine()) != null) {
+                    line = line.replace(",", ".");
+                    temperatures.add(Double.parseDouble(line));
+                }
             } catch (IOException e) {
                 System.out.println("Error reading file");
             }
@@ -37,11 +36,9 @@ public class Ovn8a {
         } catch (FileNotFoundException e) {
             System.out.println("File not found");
         }
-
     }
 
-
-    public double getAverage(){
+    public double getAverage() {
         double sum = 0;
         for (double temp : temperatures) {
             sum += temp;
@@ -49,7 +46,7 @@ public class Ovn8a {
         return sum / temperatures.size();
     }
 
-    public double getMin(){
+    public double getMin() {
         double min = temperatures.get(0);
         for (double temp : temperatures) {
             if (temp < min) {
@@ -59,7 +56,7 @@ public class Ovn8a {
         return min;
     }
 
-    public double getMax(){
+    public double getMax() {
         double max = temperatures.get(0);
         for (double temp : temperatures) {
             if (temp > max) {
